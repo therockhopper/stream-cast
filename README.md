@@ -1,2 +1,2 @@
-# HLS-cast
-Test HLS streams with CromeCast
+# Stream Cast
+Test streams with Chromecast
