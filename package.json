@@ -1,0 +1,35 @@
+{
+  "name": "stream-cast",
+  "version": "0.0.1",
+  "description": "Cast streams",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "start": "webpack serve --mode production",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankschmidt902/stream-cast.git"
+  },
+  "keywords": [
+    "Chromecast"
+  ],
+  "author": "Frank Schmidt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frankschmidt902/stream-cast/issues"
+  },
+  "homepage": "https://github.com/frankschmidt902/stream-cast#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.16.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
