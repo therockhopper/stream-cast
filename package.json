@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack serve --mode development",
     "start": "webpack serve --mode production",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "standard --fix"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.1",
+    "standard": "^16.0.3",
     "style-loader": "^2.0.0",
     "webpack": "^5.16.0",
     "webpack-cli": "^4.4.0",
