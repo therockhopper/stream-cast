@@ -11,6 +11,19 @@ const CSV_URL =
 let streams = undefined;
 let activeStream = undefined;
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((registration) => {
+        console.log('SW registered: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError);
+      });
+  });
+}
+
 window['__onGCastApiAvailable'] = function(isAvailable) {
   if (isAvailable) {
     initializeCastApi();
@@ -47,7 +60,7 @@ const initializeCastApi = function() {
     .then(json => {
       streams = json;
       console.log(streams);
-      setActiveStream(streams[0].URL);
+      setActiveStream(streams[1].URL);
     });
 };
 
