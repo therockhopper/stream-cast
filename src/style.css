@@ -25,24 +25,9 @@ h1 {
   font-size: 2.4rem;
 }
 
-.nav-wrapper {
-  height: 6.4rem;
-}
-
-.player-wrapper {
-  box-shadow: none;
-  position: relative;
-  height: 65vh;
-}
-
 .theatre-wrapper {
   background-color: black;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 .theatre {
@@ -107,7 +92,7 @@ h1 {
 .categories {
   height: 35vh;
   width: var(--category-width);
-  overflow: auto;
+  overflow: hidden;
   position: absolute;
   bottom: 0;
   left: 0;
