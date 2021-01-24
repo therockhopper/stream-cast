@@ -3,7 +3,9 @@ import 'ext-video';
 
 const CSV_URL = process.env.CSV_URL;
 const csv = require('csvtojson');
-const video = document.querySelector('.theatre');
+const videoEl = document.querySelector('.theatre');
+const streamsEl = document.querySelector('.streams');
+const categoriesEl = document.querySelector('.categories');
 
 let events;
 let streams;
@@ -72,31 +74,53 @@ const initializeCastApi = function() {
   fetch(CSV_URL)
     .then(resp => resp.text())
     .then(csvString => csv().fromString(csvString))
-    .then(json => setStreamGuide(json));
+    .then(json => {
+      streams = json;
+      console.log(streams);
+      setStreamList(streams)
+      setActiveStream(streams[0].url);
+    });
 };
 
-const categorys = ['football', 'mma', 'hockey'];
-const setStreamGuide = function(streams) {
-  const streamGuideDom = document.querySelector('#stream-guide');
-  for (const category of categorys) {
-    for (const stream of streams) {
-      if (stream.category == category) {
-        const streamDiv = document.createElement('div');
-        const streamText = document.createTextNode(stream.url);
-        streamDiv.append(streamText);
-        streamGuideDom.appendChild(streamDiv);
-      }
-    }
-  }
 
-  if (!activeStream) {
-    setActiveStream(streams[1].url);
-  }
+
+const setStreamList = function(streams) {
+  streamsEl.innerHTML = '';
+
+  streams.forEach((stream) => {
+    setStream(stream)
+    setType(stream)
+  })
+};
+
+const setStream = function(stream) {
+  const streamEl = document.createElement('div');
+
+  streamEl.classList.add('stream');
+  streamEl.innerText = `${stream.name}: ${stream.description}`;
+  streamEl.url = stream.url;
+  streamEl.addEventListener('click', (e) => {
+    setActiveStream(e.target.url)
+  })
+
+  streamsEl.append(streamEl);
+};
+
+const setType = function(stream) {
+  const categoryEl = document.createElement('div');
+
+  categoryEl.classList.add('category');
+  categoryEl.innerText = stream.category;
+  categoryEl.addEventListener('click', (e) => {
+    console.dir(e.target)
+  })
+
+  categoriesEl.append(categoryEl);
 };
 
 const setActiveStream = function(url) {
   console.log(`play ${url}`);
 
   activeStream = url;
-  video.src = url;
+  videoEl.src = url;
 };
