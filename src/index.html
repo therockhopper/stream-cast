@@ -2,27 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="/manifest.webmanifest" />
     <title>Stream Cast</title>
   </head>
   <body>
-    <h1>Stream Cast</h1>
-    <h2>Streams</h2>
-    <div class="proFootballStreams">
-      <h3>Pro Football</h3>
-      <ul class="proFootballStreamsList"></ul>
+    <div class="nav-wrapper">
+      <h1>Stream Cast</h1>
     </div>
-    <div class="mmaStreams">
-      <h3>MMA</h3>
-      <ul class="mmaStreamsList"></ul>
+    <div class="player-wrapper">
+      <div class="theatre-wrapper">
+        <video
+          is="ext-video"
+          class="theatre"
+          height="480"
+          width="852"
+          muted
+          autoplay
+          controls
+        ></video>
+        <button is="google-cast-button"></button>
+      </div>
     </div>
-    <div class="hockeyStreams">
-      <h3>Hockey</h3>
-      <ul class="hockeyStreamsList"></ul>
-    </div>
-    <div class="theatre-wrapper">
-      <video is="ext-video" class="theatre" height="480" width="852" muted autoplay controls></video>
-      <button is="google-cast-button"></button>
+    <div class="layout-wrapper">
+      <ul class="category-list">
+        <li class="category-list-item">
+          <span class="category-list-item-icon">🏈</span> Football
+        </li>
+        <li class="category-list-item">
+          <span class="category-list-item-icon">🏈</span> Football
+        </li>
+        <li class="category-list-item">
+          <span class="category-list-item-icon">🏈</span> Football
+        </li>
+      </ul>
+      <div id="stream-guide"></div>
     </div>
   </body>
   <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
