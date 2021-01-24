@@ -28,6 +28,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "csvtojson": "^2.0.10",
+    "dotenv-webpack": "^6.0.0",
     "hls.js": "^0.14.17",
     "html-webpack-plugin": "^4.5.1",
     "standard": "^16.0.3",

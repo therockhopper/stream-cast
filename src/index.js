@@ -1,6 +1,6 @@
 import './style.css';
 
-const CSV_URL = require('../config.json').CSV_URL
+const CSV_URL = process.env.CSV_URL;
 const csv = require('csvtojson');
 const Hls = require('hls.js');
 
@@ -77,9 +77,9 @@ const initializeCastApi = function() {
 const setActiveStream = function(url) {
   console.log(`play ${url}`);
   const videoSrc = url;
-  
+
   activeStream = url;
-  
+
   if (Hls.isSupported()) {
     const hls = new Hls();
     hls.loadSource(videoSrc);
@@ -87,6 +87,6 @@ const setActiveStream = function(url) {
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
     video.src = videoSrc;
   }
-  
+
   video.volume = 1;
 };
