@@ -1,9 +1,8 @@
 import './style.css';
+import 'ext-video';
 
 const CSV_URL = process.env.CSV_URL;
 const csv = require('csvtojson');
-const Hls = require('hls.js');
-
 const video = document.querySelector('.theatre');
 
 let events
@@ -76,17 +75,7 @@ const initializeCastApi = function() {
 
 const setActiveStream = function(url) {
   console.log(`play ${url}`);
-  const videoSrc = url;
-
+  
   activeStream = url;
-
-  if (Hls.isSupported()) {
-    const hls = new Hls();
-    hls.loadSource(videoSrc);
-    hls.attachMedia(video);
-  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = videoSrc;
-  }
-
-  video.volume = 1;
+  video.src = url;
 };
