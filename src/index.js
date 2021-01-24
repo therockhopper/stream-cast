@@ -1,6 +1,6 @@
 import './style.css';
 
-const CSV_URL = require('../config.json').CSV_URL
+const CSV_URL = process.env.CSV_URL;
 const csv = require('csvtojson');
 const Hls = require('hls.js');
 
@@ -12,6 +12,19 @@ let castSession;
 let activeStream;
 let remotePlayer;
 let remoteController;
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((registration) => {
+        console.log('SW registered: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError);
+      });
+  });
+}
 
 window['__onGCastApiAvailable'] = function(isAvailable) {
   if (isAvailable) {
@@ -57,16 +70,16 @@ const initializeCastApi = function() {
     .then(json => {
       streams = json;
       console.log(streams);
-      setActiveStream(streams[0].URL);
+      setActiveStream(streams[1].URL);
     });
 };
 
 const setActiveStream = function(url) {
   console.log(`play ${url}`);
   const videoSrc = url;
-  
+
   activeStream = url;
-  
+
   if (Hls.isSupported()) {
     const hls = new Hls();
     hls.loadSource(videoSrc);
@@ -74,6 +87,6 @@ const setActiveStream = function(url) {
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
     video.src = videoSrc;
   }
-  
+
   video.volume = 1;
 };
