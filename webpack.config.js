@@ -24,7 +24,7 @@ module.exports = env => {
       splitChunks: {chunks: 'all'},
     },
     plugins: [
-      new Dotenv(),
+      new Dotenv({systemvars: true}),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html'),
         filename: 'index.html',
