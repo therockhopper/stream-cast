@@ -1,5 +1,6 @@
 :root {
   --blue70: #0043ce;
+  --cast-color: white;
 }
 
 html {
@@ -15,4 +16,29 @@ body {
 h1 {
   font-size: 2.4rem;
   color: var(--blue70);
+}
+
+.theatre-wrapper {
+  position: absolute;
+}
+
+.theatre {
+  background-color: black;
+}
+
+[is="google-cast-button"] {
+  --connected-color: var(--cast-color);
+  --disconnected-color: var(--cast-color);
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+[is="google-cast-button"]:hover,
+.theatre:hover ~ [is="google-cast-button"] {
+  display: block !important;
 }
