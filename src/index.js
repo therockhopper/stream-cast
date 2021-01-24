@@ -4,7 +4,6 @@ const CSV_URL = process.env.CSV_URL;
 const csv = require('csvtojson');
 const Hls = require('hls.js');
 
-console.log(CSV_URL)
 const video = document.querySelector('.theatre');
 
 let events
