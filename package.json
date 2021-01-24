@@ -27,6 +27,8 @@
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "csvtojson": "^2.0.10",
+    "hls.js": "^0.14.17",
     "html-webpack-plugin": "^4.5.1",
     "standard": "^16.0.3",
     "style-loader": "^2.0.0",
