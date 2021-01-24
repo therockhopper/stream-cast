@@ -7,22 +7,21 @@
   <body>
     <h1>Stream Cast</h1>
     <h2>Streams</h2>
-    <div id="proFootballStreams">
+    <div class="proFootballStreams">
       <h3>Pro Football</h3>
-      <ul id="proFootballStreamsList"></ul>
+      <ul class="proFootballStreamsList"></ul>
     </div>
-    <div id="mmaStreams">
+    <div class="mmaStreams">
       <h3>MMA</h3>
-      <ul id="mmaStreamsList"></ul>
+      <ul class="mmaStreamsList"></ul>
     </div>
-    <div id="hockeyStreams">
+    <div class="hockeyStreams">
       <h3>Hockey</h3>
-      <ul id="hockeyStreamsList"></ul>
+      <ul class="hockeyStreamsList"></ul>
     </div>
-    <div>
-      <video id="theatre" height="113" width="200" muted autoplay></video>
-      <button id="muteButton">Mute/unMute</button>
-      <google-cast-launcher id="castButton"></google-cast-launcher>
+    <div class="theatre-wrapper">
+      <video class="theatre" height="480" width="852" muted autoplay controls></video>
+      <button is="google-cast-button"></button>
     </div>
   </body>
   <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
